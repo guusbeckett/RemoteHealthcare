@@ -17,13 +17,16 @@ namespace Server.Control
         private ServerControl serverControl;
         public bool isDoctor { get; set; }
 
+        ///<summary>
+        ///Standard constructor for the Client class, requiring a TCPClient and a ServerControl.
+        ///</summary>
         public Client(TcpClient client, ServerControl sControl)
         {
-            this.isDoctor = false;
-            this.serverControl = sControl;
-            this.tcpClient = client;
-            this.listenThread = new Thread(new ThreadStart(handler));
-            this.listenThread.Start();
+            isDoctor = false;
+            serverControl = sControl;
+            tcpClient = client;
+            listenThread = new Thread(new ThreadStart(handler));
+            listenThread.Start();
         }
 
         ///<summary>
@@ -104,11 +107,17 @@ namespace Server.Control
             this.password = password;
         }
 
+        ///<summary>
+        ///Override of the HashCode comparing.
+        ///</summary>
         public override int GetHashCode()
         {
             return userName.GetHashCode();    
         }
 
+        ///<summary>
+        ///Override of the Equals method.
+        ///</summary>
         public override bool Equals(object obj)
         {
             if (obj is Client && (obj == this || ((Client) obj).userName == userName))

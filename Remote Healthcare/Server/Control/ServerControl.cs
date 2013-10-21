@@ -69,6 +69,9 @@ namespace Server.Control
             serverModel.writeBikeData(client, null);
         }
 
+        ///<summary>
+        ///Creates a Packet containing the online client list.
+        ///</summary>
         public Packet getOnlineClientListPacket()
         {
             Packet pack = new Packet();
@@ -280,6 +283,9 @@ namespace Server.Control
             serverModel.finalizeData();
         }
 
+        ///<summary>
+        ///Loads the specified file and returns a list from that file.
+        ///</summary>
         public List<DoctorCredentials> readDoctorFile(String filepath)
         {
             List<DoctorCredentials> list = new List<DoctorCredentials>();
@@ -294,6 +300,9 @@ namespace Server.Control
             return list;
         }
 
+        ///<summary>
+        ///Returns the X509 Certificate.
+        ///</summary>
         public X509Certificate getCertificate()
         {
             return serverCertificate;
