@@ -36,8 +36,30 @@ namespace Server.Control
             tcpListener.Start();
             TcpClient tempClient;
 
+
+            List<ConsoleColor> colors = new List<ConsoleColor>(){
+ConsoleColor.White,
+ConsoleColor.Gray,
+ConsoleColor.DarkGray,
+ConsoleColor.DarkBlue,
+ConsoleColor.Blue,
+ConsoleColor.DarkCyan,
+ConsoleColor.Cyan,
+ConsoleColor.Green,
+ConsoleColor.DarkGreen,
+ConsoleColor.DarkYellow,
+ConsoleColor.Yellow,
+ConsoleColor.Magenta,
+ConsoleColor.DarkMagenta,
+ConsoleColor.DarkRed,
+ConsoleColor.Red
+};
+            int index = 0;
+
             for (; ; )
             {
+                index++;
+                Console.ForegroundColor = colors[index % 15];
                 try
                 {
                     ServerView.writeToConsole("Listening...");

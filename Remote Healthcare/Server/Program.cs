@@ -1,4 +1,5 @@
-﻿using Server.Control;
+﻿using System;
+using Server.Control;
 
 namespace Server
 {
@@ -9,6 +10,7 @@ namespace Server
         ///</summary>
         static void Main(string[] args)
         {
+            Console.Title = "Healthcare Over Internet";
             new ServerControl();
         }
     }
